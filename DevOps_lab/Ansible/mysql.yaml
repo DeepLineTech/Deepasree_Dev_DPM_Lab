@@ -1,0 +1,14 @@
+---
+ - host: all
+   tasks:
+     - name: Install MySQL for production ready server
+     - hosts: dbserver
+   vars: 
+   root_db_password: password
+   gather_facts: True
+   tasks: 
+     - name: Install MySQL
+       yum: name=mysql-server state=installed
+ 
+     - name: Install MySQL Python
+       yum: name=MySQL-python state=installed
